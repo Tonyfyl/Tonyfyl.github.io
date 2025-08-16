@@ -1,0 +1,19 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文章 · BerryDays</title>
+<style>body{font-family:system-ui;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.8}
+a{color:#0ea5e9}img,video{max-width:100%;height:auto;border-radius:12px}</style>
+<p><a href="blog.html">← 回到博客</a></p>
+<h1 id="t">加载中…</h1><p><small id="d"></small></p><div id="c"></div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+const owner='Tonyfyl', repo='Tonyfyl.github.io';
+const id=new URL(location.href).searchParams.get('id');
+(async()=>{
+  if(!id){t.textContent='缺少 id';return;}
+  const r=await fetch(`https://api.github.com/repos/${owner}/${repo}/issues/${id}`,
+    {headers:{Accept:'application/vnd.github+json'}});
+  const p=await r.json(); document.title=p.title+' · BerryDays';
+  t.textContent=p.title; d.textContent=p.created_at.slice(0,10);
+  c.innerHTML=marked.parse(p.body||'');
+})();
+</script>
