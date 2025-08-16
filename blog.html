@@ -21,7 +21,7 @@ const owner='Tonyfyl', repo='Tonyfyl.github.io';
       <div style="opacity:.7">${i.created_at.slice(0,10)}</div>
       <h3 style="margin:6px 0">${i.title}</h3>
       <p style="opacity:.85">${(i.body||'').split(/\n{2,}/)[0].replace(/\r?\n/g,' ').slice(0,140)}…</p>
-      <a href="post.html?id=${i.number}">阅读 →</a>
+      <a href="<a href="post.html?id=${i.number}">阅读 →</a>=${i.number}">阅读 →</a>
     </div>`).join('');
 })();
 </script>
