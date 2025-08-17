@@ -8,121 +8,72 @@
   <meta name="theme-color" content="#0ea5e9" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230ea5e9'/%3E%3Ctext x='50' y='58' font-size='54' text-anchor='middle' fill='white' font-family='Arial, sans-serif'%3EB%3C/text%3E%3C/svg%3E" />
   <style>
-    :root {
-      --bg: #0b0d12;
-      --bg-elev: #11151b;
-      --text: #e6e6e6;
-      --muted: #a6adbb;
-      --brand: #0ea5e9;
-      --brand-2: #38bdf8;
-      --border: #212633;
-      --card: #0c1117;
-      --good: #22c55e;
-      --warn: #fbbf24;
-      --shadow: 0 10px 30px rgba(2,8,23,.35);
-    }
-
-    /* Light mode tokens */
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #fafafa;
-        --bg-elev: #ffffff;
-        --text: #0b1220;
-        --muted: #475569;
-        --brand: #0284c7;
-        --brand-2: #0ea5e9;
-        --border: #e5e7eb;
-        --card: #ffffff;
-        --shadow: 0 10px 30px rgba(2,8,23,.08);
-      }
-    }
-
-    /* Manual theme override */
-    html[data-theme="dark"] {
-      --bg: #0b0d12; --bg-elev:#11151b; --text:#e6e6e6; --muted:#a6adbb; --brand:#0ea5e9; --brand-2:#38bdf8; --border:#212633; --card:#0c1117; --shadow:0 10px 30px rgba(2,8,23,.35);
-    }
-    html[data-theme="light"] {
-      --bg:#fafafa; --bg-elev:#ffffff; --text:#0b1220; --muted:#475569; --brand:#0284c7; --brand-2:#0ea5e9; --border:#e5e7eb; --card:#ffffff; --shadow:0 10px 30px rgba(2,8,23,.08);
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: var(--bg); color: var(--text); line-height: 1.65;
-    }
-
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .container { max-width: 1100px; padding: 0 20px; margin: 0 auto; }
+    :root { --bg:#0b0d12; --bg-elev:#11151b; --text:#e6e6e6; --muted:#a6adbb; --brand:#0ea5e9; --brand-2:#38bdf8; --border:#212633; --card:#0c1117; --shadow:0 10px 30px rgba(2,8,23,.35); }
+    @media (prefers-color-scheme: light) { :root{ --bg:#fafafa; --bg-elev:#fff; --text:#0b1220; --muted:#475569; --brand:#0284c7; --brand-2:#0ea5e9; --border:#e5e7eb; --card:#fff; --shadow:0 10px 30px rgba(2,8,23,.08);} }
+    html[data-theme="dark"]{ --bg:#0b0d12; --bg-elev:#11151b; --text:#e6e6e6; --muted:#a6adbb; --brand:#0ea5e9; --brand-2:#38bdf8; --border:#212633; --card:#0c1117; --shadow:0 10px 30px rgba(2,8,23,.35);}
+    html[data-theme="light"]{ --bg:#fafafa; --bg-elev:#fff; --text:#0b1220; --muted:#475569; --brand:#0284c7; --brand-2:#0ea5e9; --border:#e5e7eb; --card:#fff; --shadow:0 10px 30px rgba(2,8,23,.08);}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";background:var(--bg);color:var(--text);line-height:1.65}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    .container{max-width:1100px;padding:0 20px;margin:0 auto}
 
     /* Header */
-    header {
-      position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(8px);
-      background: color-mix(in srgb, var(--bg-elev) 80%, transparent);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { display: flex; gap: 12px; align-items: center; font-weight: 700; letter-spacing: .3px; }
-    .brand-logo { width: 28px; height: 28px; border-radius: 8px; background: radial-gradient(110% 110% at 20% 20%, var(--brand-2), var(--brand)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.15); }
-    .nav-links { display: flex; gap: 18px; align-items: center; }
-    .nav-links a { color: var(--text); opacity: .85; font-weight: 600; }
-    .nav-links a:hover { opacity: 1; }
-    .btn { display: inline-flex; align-items: center; gap: .5rem; border: 1px solid var(--border); padding: .6rem .9rem; border-radius: 14px; background: var(--bg-elev); color: var(--text); font-weight: 600; box-shadow: var(--shadow); }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border: 0; }
+    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(8px);background:color-mix(in srgb, var(--bg-elev) 80%, transparent);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:700;letter-spacing:.3px}
+    .brand-logo{width:28px;height:28px;border-radius:8px;background:radial-gradient(110% 110% at 20% 20%, var(--brand-2), var(--brand));box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:var(--text);opacity:.85;font-weight:600}
+    .nav-links a:hover{opacity:1}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);padding:.6rem .9rem;border-radius:14px;background:var(--bg-elev);color:var(--text);font-weight:600;box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border:0}
 
     /* Hero */
-    .hero { padding: 64px 0 36px; display: grid; grid-template-columns: 1.4fr .9fr; gap: 28px; align-items: center; }
-    .hero .h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.2; margin: 0 0 12px; }
-    .hero .lead { color: var(--muted); margin: 0 0 22px; }
-    .pill { display: inline-flex; gap: .5rem; align-items: center; padding: .35rem .6rem; border: 1px dashed var(--border); border-radius: 999px; color: var(--muted); font-size: .9rem; }
-    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-    .avatar { width: 160px; height: 160px; border-radius: 20px; object-fit: cover; border: 4px solid color-mix(in srgb, var(--brand), transparent 70%); box-shadow: var(--shadow); }
+    .hero{padding:64px 0 36px;display:grid;grid-template-columns:1.4fr .9fr;gap:28px;align-items:center}
+    .hero .h1{font-size:clamp(28px,5vw,44px);line-height:1.2;margin:0 0 12px}
+    .hero .lead{color:var(--muted);margin:0 0 22px}
+    .pill{display:inline-flex;gap:.5rem;align-items:center;padding:.35rem .6rem;border:1px dashed var(--border);border-radius:999px;color:var(--muted);font-size:.9rem}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .avatar{width:160px;height:160px;border-radius:20px;object-fit:cover;border:4px solid color-mix(in srgb, var(--brand), transparent 70%);box-shadow:var(--shadow)}
 
     /* Sections */
-    section { padding: 42px 0; border-top: 1px solid var(--border); }
-    .section-title { font-size: clamp(22px, 3.4vw, 32px); margin: 0 0 16px; }
-    .section-desc { color: var(--muted); margin-top: 0; }
+    section{padding:42px 0;border-top:1px solid var(--border)}
+    .section-title{font-size:clamp(22px,3.4vw,32px);margin:0 0 16px}
+    .section-desc{color:var(--muted);margin-top:0}
 
     /* Portfolio */
-    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 22px; }
-    .chip { padding: .4rem .7rem; border: 1px solid var(--border); background: var(--bg-elev); border-radius: 999px; cursor: pointer; user-select: none; font-weight: 600; }
-    .chip[aria-pressed="true"] { background: color-mix(in srgb, var(--brand) 18%, var(--bg-elev)); border-color: color-mix(in srgb, var(--brand) 40%, var(--border)); }
-
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .card { grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: transform .2s ease; }
-    .card:hover { transform: translateY(-2px); }
-    .thumb { aspect-ratio: 16/9; width: 100%; object-fit: cover; }
-    .card-body { padding: 14px 16px 18px; }
-    .badge { display: inline-flex; align-items: center; font-size: .75rem; padding: .25rem .5rem; border-radius: 8px; border: 1px solid var(--border); color: var(--muted); }
-    .title { margin: 10px 0 6px; font-size: 1.05rem; }
-    .meta { color: var(--muted); font-size: .9rem; }
-
-    @media (min-width: 640px) { .card { grid-column: span 6; } }
-    @media (min-width: 980px) { .card { grid-column: span 4; } }
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 22px}
+    .chip{padding:.4rem .7rem;border:1px solid var(--border);background:var(--bg-elev);border-radius:999px;cursor:pointer;user-select:none;font-weight:600}
+    .chip[aria-pressed="true"]{background:color-mix(in srgb, var(--brand) 18%, var(--bg-elev));border-color:color-mix(in srgb, var(--brand) 40%, var(--border))}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{position:relative;grid-column:span 12;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s ease}
+    .card:hover{transform:translateY(-2px)}
+    .thumb{aspect-ratio:16/9;width:100%;object-fit:cover}
+    .card-body{padding:14px 16px 18px}
+    .badge{display:inline-flex;align-items:center;font-size:.75rem;padding:.25rem .5rem;border-radius:8px;border:1px solid var(--border);color:var(--muted)}
+    .title{margin:10px 0 6px;font-size:1.05rem}
+    .meta{color:var(--muted);font-size:.9rem}
+    .card .hit{position:absolute;inset:0;border-radius:inherit} /* 整卡可点击 */
+    @media (min-width:640px){.card{grid-column:span 6}}
+    @media (min-width:980px){.card{grid-column:span 4}}
 
     /* Blog */
-    .post { grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 18px; box-shadow: var(--shadow); }
-    .post h3 { margin: 6px 0 8px; font-size: 1.1rem; }
-    .post p { margin: 0 0 10px; color: var(--muted); }
-    @media (min-width: 780px) { .post { grid-column: span 6; } }
+    .post{grid-column:span 12;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+    .post h3{margin:6px 0 8px;font-size:1.1rem}
+    .post p{margin:0 0 10px;color:var(--muted)}
+    @media (min-width:780px){.post{grid-column:span 6}}
 
-    /* About */
-    .stack { display: grid; gap: 10px; }
-    .timeline { display: grid; gap: 14px; }
-    .timeline-item { display: grid; grid-template-columns: 110px 1fr; gap: 14px; align-items: start; }
-    .timeline time { color: var(--muted); font-weight: 600; }
-    .skill { display:inline-block; border:1px solid var(--border); padding:.35rem .55rem; border-radius:10px; margin:4px 6px 0 0; color:var(--muted); font-weight:600; }
-
-    /* Footer */
-    footer { padding: 32px 0 48px; border-top: 1px solid var(--border); color: var(--muted); }
-    .socials { display:flex; gap:12px; }
-    .icon { width: 22px; height: 22px; display: inline-block; }
-
-    /* Utility */
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    /* About / Footer / Utils */
+    .stack{display:grid;gap:10px}
+    .timeline{display:grid;gap:14px}
+    .timeline-item{display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:start}
+    .timeline time{color:var(--muted);font-weight:600}
+    .skill{display:inline-block;border:1px solid var(--border);padding:.35rem .55rem;border-radius:10px;margin:4px 6px 0 0;color:var(--muted);font-weight:600}
+    footer{padding:32px 0 48px;border-top:1px solid var(--border);color:var(--muted)}
+    .socials{display:flex;gap:12px}
+    .icon{width:22px;height:22px;display:inline-block}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
@@ -135,7 +86,7 @@
       </div>
       <nav class="nav-links" aria-label="主导航">
         <a href="#portfolio">作品集</a>
-        <a href="#blog">博客</a>
+        <a href="/blog.html">博客</a> <!-- 改为跳转博客页 -->
         <a href="#about">关于我</a>
         <a href="#contact">联系</a>
         <button id="themeToggle" class="btn" aria-pressed="false" aria-label="切换深浅色">🌓</button>
@@ -151,7 +102,7 @@
       <p class="lead">这里是关于我的绝大多数：视频剪辑、写作与摄影作品，以及我每天的文字随笔。欢迎来逛，也欢迎合作与交流。</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#portfolio">查看作品</a>
-        <a class="btn" href="#blog">最近文章</a>
+        <a class="btn" href="/blog.html">最近文章</a>
         <a class="btn" href="mailto:hi@berrydays.com">联系我</a>
       </div>
     </div>
@@ -165,6 +116,7 @@
     <div class="container">
       <h2 class="section-title">作品集</h2>
       <p class="section-desc">按类别浏览：视频剪辑 / 写作 / 摄影。每个作品都附有简介与外链。</p>
+
       <div class="filters" role="toolbar" aria-label="作品筛选">
         <button class="chip" aria-pressed="true" data-filter="all">全部</button>
         <button class="chip" aria-pressed="false" data-filter="video">视频剪辑</button>
@@ -173,64 +125,73 @@
       </div>
 
       <div class="grid" id="portfolioGrid">
-        <!-- Card 1 -->
+        <!-- 1 视频：暂时指向博客页 -->
         <article class="card" data-tags="video">
           <img class="thumb" src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1200&auto=format&fit=crop" alt="视频剪辑项目缩略图" loading="lazy" />
           <div class="card-body">
             <span class="badge">视频剪辑</span>
             <h3 class="title">《Yellow》骑行旅途混剪</h3>
             <p class="meta">片段剪辑 · 调色 · 配乐</p>
-            <a class="btn" href="#" aria-label="查看作品 Yellow">查看</a>
+            <a class="btn" href="/blog.html" aria-label="查看作品 Yellow">查看</a>
+            <a class="hit" href="/blog.html" aria-label="打开《Yellow》"></a>
           </div>
         </article>
-        <!-- Card 2 -->
+
+        <!-- 2 写作：跳到你的 Issue #2 -->
         <article class="card" data-tags="writing">
           <img class="thumb" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1200&auto=format&fit=crop" alt="写作作品缩略图" loading="lazy" />
           <div class="card-body">
             <span class="badge">写作</span>
             <h3 class="title">《在雨里走回自己》</h3>
             <p class="meta">散文 · 2,300 字 · 个人随笔</p>
-            <a class="btn" href="#">阅读</a>
+            <a class="btn" href="/post.html?id=2">阅读</a>
+            <a class="hit" href="/post.html?id=2" aria-label="阅读 在雨里走回自己"></a>
           </div>
         </article>
-        <!-- Card 3 -->
+
+        <!-- 3 摄影：暂时指向博客页（以后可替换相册/详情） -->
         <article class="card" data-tags="photo">
           <img class="thumb" src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=80&w=1200&auto=format&fit=crop" alt="摄影作品缩略图" loading="lazy" />
           <div class="card-body">
             <span class="badge">摄影</span>
             <h3 class="title">《山色入城》</h3>
             <p class="meta">杭州西湖 · 胶片色调</p>
-            <a class="btn" href="#">浏览</a>
+            <a class="btn" href="/blog.html">浏览</a>
+            <a class="hit" href="/blog.html" aria-label="浏览 山色入城"></a>
           </div>
         </article>
-        <!-- Card 4 -->
+
+        <!-- 4~6 先都指向博客页，你之后可替换为 B站/详情页 -->
         <article class="card" data-tags="video">
           <img class="thumb" src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=1200&auto=format&fit=crop" alt="视频项目缩略图" loading="lazy" />
           <div class="card-body">
             <span class="badge">视频剪辑</span>
             <h3 class="title">《去看世界》短片</h3>
             <p class="meta">脚本 · 剪辑 · 旁白</p>
-            <a class="btn" href="#">查看</a>
+            <a class="btn" href="/blog.html">查看</a>
+            <a class="hit" href="/blog.html" aria-label="打开 去看世界"></a>
           </div>
         </article>
-        <!-- Card 5 -->
+
         <article class="card" data-tags="writing">
           <img class="thumb" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1200&auto=format&fit=crop" alt="写作作品缩略图" loading="lazy" />
           <div class="card-body">
             <span class="badge">写作</span>
             <h3 class="title">《自由的艺术·节选》</h3>
             <p class="meta">连载 · 主题：选择与边界</p>
-            <a class="btn" href="#">阅读</a>
+            <a class="btn" href="/blog.html">阅读</a>
+            <a class="hit" href="/blog.html" aria-label="阅读 自由的艺术·节选"></a>
           </div>
         </article>
-        <!-- Card 6 -->
+
         <article class="card" data-tags="photo">
           <img class="thumb" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=1200&auto=format&fit=crop" alt="摄影作品缩略图" loading="lazy" />
           <div class="card-body">
             <span class="badge">摄影</span>
             <h3 class="title">《夜行者》</h3>
             <p class="meta">城市夜景 · 情绪影像</p>
-            <a class="btn" href="#">浏览</a>
+            <a class="btn" href="/blog.html">浏览</a>
+            <a class="hit" href="/blog.html" aria-label="浏览 夜行者"></a>
           </div>
         </article>
       </div>
@@ -241,22 +202,13 @@
   <section id="blog">
     <div class="container">
       <h2 class="section-title">最近文章</h2>
-      <p class="section-desc">用文字记录每一天。下面是最新的文章条目（样例）。</p>
-      <div class="grid">
-        <article class="post">
-          <span class="badge">2025-08-13</span>
-          <h3>在不确定中，继续出发</h3>
-          <p>给未来的自己：当你再度犹豫，请想起今天迈出去的这一步。它不是最大的一步，却可能是最关键的一步。</p>
-          <a class="btn" href="#">阅读</a>
-        </article>
-        <article class="post">
-          <span class="badge">2025-08-08</span>
-          <h3>我为什么热爱视频剪辑</h3>
-          <p>把情绪翻译成节奏，是我理解世界的一种方式。镜头之下，世界有了新的呼吸。</p>
-          <a class="btn" href="#">阅读</a>
-        </article>
+      <p class="section-desc">用文字记录每一天。下面是最新的文章条目。</p>
+
+      <div class="grid" id="blogList">
+        <!-- 由 JS 动态填充最新两篇 -->
       </div>
-      <p style="margin-top:16px"><a href="#" class="btn">查看全部文章</a></p>
+
+      <p style="margin-top:16px"><a href="/blog.html" class="btn">查看全部文章</a></p>
     </div>
   </section>
 
@@ -267,33 +219,12 @@
       <div class="stack">
         <p class="section-desc">Berry · 学生 · 喜欢视频剪辑、写作与长路骑行。生命的意义是来体验。</p>
         <div class="timeline">
-          <div class="timeline-item">
-            <time>2025</time>
-            <div>
-              <strong>「BerryDays」个人网站起航</strong>
-              <div class="meta">把作品与日常写作放在一处。</div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <time>2024</time>
-            <div>
-              <strong>视频剪辑与内容创作</strong>
-              <div class="meta">学习 Final Cut Pro，尝试叙事与情绪的剪辑节奏。</div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <time>更早</time>
-            <div>
-              <strong>杭州 → 拉萨骑行</strong>
-              <div class="meta">把路上的风吹进心里，写成故事。</div>
-            </div>
-          </div>
+          <div class="timeline-item"><time>2025</time><div><strong>「BerryDays」个人网站起航</strong><div class="meta">把作品与日常写作放在一处。</div></div></div>
+          <div class="timeline-item"><time>2024</time><div><strong>视频剪辑与内容创作</strong><div class="meta">学习 Final Cut Pro，尝试叙事与情绪的剪辑节奏。</div></div></div>
+          <div class="timeline-item"><time>更早</time><div><strong>杭州 → 拉萨骑行</strong><div class="meta">把路上的风吹进心里，写成故事。</div></div></div>
         </div>
         <div>
-          <div class="skill">视频剪辑</div>
-          <div class="skill">写作</div>
-          <div class="skill">摄影</div>
-          <div class="skill">社群运营</div>
+          <div class="skill">视频剪辑</div><div class="skill">写作</div><div class="skill">摄影</div><div class="skill">社群运营</div>
         </div>
       </div>
     </div>
@@ -303,7 +234,7 @@
   <section id="contact">
     <div class="container">
       <h2 class="section-title">联系我</h2>
-      <p class="section-desc">合作、交流与想法都欢迎。邮箱：<a href="mailto:hi@berrydays.com">hi@berrydays.com</a></p>
+    <p class="section-desc">合作、交流与想法都欢迎。邮箱：<a href="mailto:hi@berrydays.com">hi@berrydays.com</a></p>
       <div class="stack">
         <form id="contactForm" class="post" action="#" method="post" aria-label="联系表单">
           <label class="sr-only" for="name">姓名</label>
@@ -356,8 +287,8 @@
     const chips = document.querySelectorAll('.chip');
     const cards = document.querySelectorAll('#portfolioGrid .card');
     chips.forEach(chip => chip.addEventListener('click', () => {
-      chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
-      chip.setAttribute('aria-pressed', 'true');
+      chips.forEach(c => c.setAttribute('aria-pressed','false'));
+      chip.setAttribute('aria-pressed','true');
       const tag = chip.dataset.filter;
       cards.forEach(card => {
         const match = tag === 'all' || card.dataset.tags.includes(tag);
@@ -365,12 +296,37 @@
       });
     }));
 
+    // 首页“最近文章”——从 Issues 拉取最新两篇（label=blog）
+    async function loadHomeBlog(){
+      const owner='Tonyfyl', repo='Tonyfyl.github.io';
+      const url=`https://api.github.com/repos/${owner}/${repo}/issues?labels=blog&state=open&per_page=6`;
+      try{
+        const r=await fetch(url,{headers:{Accept:'application/vnd.github+json'}});
+        const list=await r.json();
+        const wrap=document.getElementById('blogList');
+        if(!Array.isArray(list)){ wrap.innerHTML='<p class="meta">暂时没有文章</p>'; return; }
+        list.sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
+        const two=list.slice(0,2);
+        wrap.innerHTML = two.map(i=>`
+          <article class="post">
+            <span class="badge">${i.created_at.slice(0,10)}</span>
+            <h3>${i.title}</h3>
+            <p>${(i.body||'').split(/\n{2,}/)[0].replace(/\r?\n/g,' ').slice(0,120)}…</p>
+            <a class="btn" href="/post.html?id=${i.number}">阅读</a>
+          </article>
+        `).join('');
+      }catch(e){
+        document.getElementById('blogList').innerHTML='<p class="meta">加载失败，请稍后重试。</p>';
+      }
+    }
+    loadHomeBlog();
+
     // Contact form (demo only)
-    const form = document.getElementById('contactForm');
-    const tip = document.getElementById('formTip');
-    form.addEventListener('submit', (e) => {
+    const form=document.getElementById('contactForm');
+    const tip=document.getElementById('formTip');
+    form.addEventListener('submit',(e)=>{
       e.preventDefault();
-      tip.textContent = '已收到你的信息（演示表单，本地不发送）。如需启用，请使用 Formspree / Vercel Functions 等服务。';
+      tip.textContent='已收到你的信息（演示表单，本地不发送）。如需启用，请使用 Formspree / Vercel Functions 等服务。';
     });
   </script>
 </body>
