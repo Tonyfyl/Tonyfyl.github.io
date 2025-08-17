@@ -199,18 +199,16 @@
   </section>
 
   <!-- Blog -->
-  <section id="blog">
-    <div class="container">
-      <h2 class="section-title">最近文章</h2>
-      <p class="section-desc">用文字记录每一天。下面是最新的文章条目。</p>
+ <section id="blog">
+  <div class="container">
+    <h2 class="section-title">最近文章</h2>
+    <p class="section-desc">用文字记录每一天。下面是最新的文章条目。</p>
 
-      <div class="grid" id="blogList">
-        <!-- 由 JS 动态填充最新两篇 -->
-      </div>
+    <div class="grid" id="blogList"></div>
 
-      <p style="margin-top:16px"><a href="/blog.html" class="btn">查看全部文章</a></p>
-    </div>
-  </section>
+    <p style="margin-top:16px"><a href="/blog.html" class="btn">查看全部文章</a></p>
+  </div>
+</section>
 
   <!-- About -->
   <section id="about">
@@ -329,5 +327,31 @@
       tip.textContent='已收到你的信息（演示表单，本地不发送）。如需启用，请使用 Formspree / Vercel Functions 等服务。';
     });
   </script>
+  <script>
+  async function loadHomeBlog(){
+    const owner='Tonyfyl', repo='Tonyfyl.github.io';
+    const url=`https://api.github.com/repos/${owner}/${repo}/issues?labels=blog&state=open&per_page=6`;
+    try{
+      const r=await fetch(url,{headers:{Accept:'application/vnd.github+json'}});
+      const list=await r.json();
+      const wrap=document.getElementById('blogList');
+      if(!Array.isArray(list)){ wrap.innerHTML='<p class="meta">暂时没有文章</p>'; return; }
+      list.sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
+      const two=list.slice(0,2);
+      wrap.innerHTML = two.map(i=>`
+        <article class="post">
+          <span class="badge">${i.created_at.slice(0,10)}</span>
+          <h3>${i.title}</h3>
+          <p>${(i.body||'').split(/\n{2,}/)[0].replace(/\r?\n/g,' ').slice(0,120)}…</p>
+          <a class="btn" href="/post.html?id=${i.number}">阅读</a>
+        </article>
+      `).join('');
+    }catch(e){
+      document.getElementById('blogList').innerHTML='<p class="meta">加载失败，请稍后重试。</p>';
+    }
+  }
+  loadHomeBlog(); // ← 确保调用
+</script>
+
 </body>
 </html>
